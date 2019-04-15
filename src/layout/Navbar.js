@@ -34,9 +34,8 @@ const Navbar = () => (
   <NavbarContainer>
     <Logo>Not just programming</Logo>
     <NavItems>
-      <NavItem><NavLink href="/blog">blog</NavLink></NavItem>
+      <NavItem><NavLink href="/">blog</NavLink></NavItem>
       <NavItem><NavLink href="/about">about</NavLink></NavItem>
-      <NavItem><NavLink href="/github">github</NavLink></NavItem>
     </NavItems>
   </NavbarContainer>
 );

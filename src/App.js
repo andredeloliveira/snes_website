@@ -8,14 +8,16 @@ const AppContainer = styled.div`
   font-family: 'Press Start 2P', cursive;
 `;
 
-const Home = () => <div>Main component</div>
+const Blog = () => <div>Blog</div>
+const About = () => <div>About</div>
 
 const App = () => (
   <Router>
     <AppContainer> 
       <Navbar />
       <MainContainer>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Blog} />
+        <Route path="" component={About} />
       </MainContainer>
     </AppContainer>
   </Router>
