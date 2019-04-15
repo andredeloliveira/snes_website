@@ -17,7 +17,7 @@ const App = () => (
       <Navbar />
       <MainContainer>
         <Route exact path="/" component={Blog} />
-        <Route path="" component={About} />
+        <Route path="/about" component={About} />
       </MainContainer>
     </AppContainer>
   </Router>
