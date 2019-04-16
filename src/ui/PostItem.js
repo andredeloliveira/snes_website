@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PostContent = styled.div`
+export const PostContent = styled.div`
   width: 80%;
   padding: 20px;
 `;
+
+export const PostSection = styled.section`
+  margin-top: 60px;
+`
 
 const ReadMore = styled.a`
   position: sticky;
@@ -15,16 +19,16 @@ const ReadMore = styled.a`
   }
 `;
 
-const PostItem = () => (
-  <section className="nes-container with-title">
-    <h3 className="title">Some title</h3>
+const PostItem = ({ id, title, shortText}) => (
+  <PostSection className="nes-container with-title">
+    <h3 className="title">{title}</h3>
     <PostContent>
-      Some really breaf comments about the blog post
+      {shortText}
     </PostContent>
-    <ReadMore href="#" className="nes-btn is-success">
+    <ReadMore href={`/blog/${id}`} className="nes-btn is-success">
       Read more
     </ReadMore>
-  </section>
+  </PostSection>
 );
 
 export default PostItem;

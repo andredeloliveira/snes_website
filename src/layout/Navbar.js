@@ -11,6 +11,12 @@ const NavbarContainer = styled.div`
 
 const Logo = styled.div`
   padding: 0 20px;
+  display: flex;
+  align-items: center;
+`;
+
+const Kirby = styled.i`
+  margin: 24px;
 `;
 
 const NavItems = styled.ul`
@@ -30,9 +36,14 @@ const NavLink = styled.a`
   text-decoration: none;
   color: ${primary},
 `;
+
+
 const Navbar = () => (
   <NavbarContainer>
-    <Logo>Not just programming</Logo>
+    <Logo>
+      <Kirby className="nes-charmander is-small"></Kirby>
+        <span>Not just programming</span>
+    </Logo>
     <NavItems>
       <NavItem><NavLink href="/">blog</NavLink></NavItem>
       <NavItem><NavLink href="/about">about</NavLink></NavItem>
