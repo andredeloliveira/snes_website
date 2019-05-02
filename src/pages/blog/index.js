@@ -3,9 +3,9 @@ import React from 'react';
 import Post from '../../ui/PostItem';
 
 const fakeContent = [
-  { 
+  {
     id: 1,
-    title: "Why being so functional?", 
+    title: "Why being so functional?",
     shortText: "Sometimes I asked myself why I've change my perspective for functions",
   },
   {
@@ -15,7 +15,7 @@ const fakeContent = [
   },
 ];
 
-const Posts = () => fakeContent.map(post => 
+const Posts = () => fakeContent.map(post =>
   <Post key={post.id} title={post.title} shortText={post.shortText} id={post.id} />
 )
 
