@@ -6,6 +6,7 @@ import MainContainer from './layout/MainContainer';
 import Blog from './pages/blog';
 import About from './pages/about';
 import PostDetails from './pages/blog/PostDetails';
+import CreatePost from './pages/blog/CreatePost';
 
 const AppContainer = styled.div`
   font-family: 'Press Start 2P', cursive;
@@ -20,6 +21,7 @@ const App = () => (
         <Route exact path="/" component={Blog} />
         <Route path="/about" component={About} />
         <Route path="/blog/:id" component={PostDetails} />
+        <Route path="/publish" component={CreatePost} />
       </MainContainer>
     </AppContainer>
   </Router>

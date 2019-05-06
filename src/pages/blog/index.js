@@ -1,23 +1,21 @@
-import React from 'react';
-// import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import blogServices from './services';
 import Post from '../../ui/PostItem';
 
-const fakeContent = [
-  {
-    id: 1,
-    title: "Why being so functional?",
-    shortText: "Sometimes I asked myself why I've change my perspective for functions",
-  },
-  {
-    id: 2,
-    title: "The benefits of Biohackling",
-    shortText: "You too can become some sort of Robocop without the need to be a robot neither a cop",
-  },
-];
+const Posts = () => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    blogServices.blog.getPosts()
+      .then(response =>
+        response.json()
+      ).then(json => setPosts(json.data));
+  }, []);
 
-const Posts = () => fakeContent.map(post =>
-  <Post key={post.id} title={post.title} shortText={post.shortText} id={post.id} />
-)
+  return posts && posts.map(post =>
+    <Post key={post.slug} id={post.id} title={post.title} shortText={post.short_text} />
+  );
+}
+
 
 const Blog = () => <Posts />
 
