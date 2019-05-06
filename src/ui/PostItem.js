@@ -4,10 +4,21 @@ import styled from 'styled-components';
 export const PostContent = styled.div`
   width: 80%;
   padding: 20px;
+  margin-bottom: 24px;
+  & pre {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: left;
+  }
+  & code {
+    font-family: 'Source Code Pro', monospace ;
+  }
 `;
 
 export const PostSection = styled.section`
   margin-top: 60px;
+  margin-bottom: 60px;
 `
 
 const ReadMore = styled.a`
@@ -19,7 +30,7 @@ const ReadMore = styled.a`
   }
 `;
 
-const PostItem = ({ id, title, shortText}) => (
+const PostItem = ({ id, title, shortText }) => (
   <PostSection className="nes-container with-title">
     <h3 className="title">{title}</h3>
     <PostContent>

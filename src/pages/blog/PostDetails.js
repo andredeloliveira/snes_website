@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import parser from 'html-react-parser';
 import { PostSection, PostContent } from '../../ui/PostItem'
 import blogServices from './services';
+
+const parseStringToHTML = (str) => {
+  return parser(str);
+}
 
 const PostDetails = (props) => {
   const { match: { params: { id } } } = props;
@@ -14,7 +19,7 @@ const PostDetails = (props) => {
     <PostSection className="nes-container with-title">
       <h3 className="title">{post && post.title}</h3>
       <PostContent>
-        {post && post.body}
+        {post && post.body && parseStringToHTML(post.body)}
       </PostContent>
     </PostSection>
   );
