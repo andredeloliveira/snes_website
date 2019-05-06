@@ -28,7 +28,7 @@ const ActionsContainer = styled.div`
   padding: 30px 30px;
 `;
 
-const CreatePost = () => {
+const CreatePost = (props) => {
   const [body, setBody] = useState(RichTextEditor.createEmptyValue());
   function handleChangeBody(value) {
     setBody(value);
@@ -45,7 +45,12 @@ const CreatePost = () => {
             body: body.toString('html')
           };
 
-          blogServices.blog.createPost({ post: { ...payload } });
+          blogServices.blog.createPost({ post: { ...payload } })
+            .then(resp => {
+              if (resp.status === 201) {
+                props.history.goBack();
+              }
+            });
         }}
         initialValues={{
           title: "",
@@ -72,6 +77,7 @@ const CreatePost = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.title}
+                  required
                 />
               </InputContainer>
               {errors.title && touched.title && errors.title}
@@ -103,10 +109,11 @@ const CreatePost = () => {
                 />
               </InputContainer>
               {errors.body && touched.body && errors.body}
+              {JSON.stringify(errors)}
               <ActionsContainer>
                 <button className="nes-btn is-primary" type="submit" disabled={isSubmitting}>
                   Submit
-                  </button>
+                </button>
               </ActionsContainer>
             </form>
           )}
