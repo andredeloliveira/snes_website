@@ -28,6 +28,12 @@ export default {
     },
     getPost(id) {
       return fetchJson(`${baseURL}/posts/${id}`, { method: 'GET' });
+    },
+    removePost(id) {
+      return fetchJson(`${baseURL}/posts/${id}`, { method: 'DELETE' });
+    },
+    editPost(id, payload) {
+      return fetchJson(`${baseURL}/posts/${id}`, { method: 'PUT', body: JSON.stringify(payload) })
     }
   }
 }

@@ -1,41 +1,32 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import RichTextEditor from 'react-rte';
 import blogServices from './services';
+import { InputContainer, ActionsContainer } from './CreatePost';
 
-// const onSubmit = (values) => console.log(values);
-//needs validation as well....
 
-export const InputContainer = styled.div`
-  padding: 10px;
-  width: 100%;
-  & label {
-    width: 300px;
-    & span {
-      font-size: 10px;
-    }
-  }
-  & input {
-    width: 100%;
-  }
-`;
-
-export const ActionsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 30px 30px;
-`;
-
-const CreatePost = (props) => {
+const EditPost = (props) => {
+  const { match: { params: { id } } } = props;
   const [body, setBody] = useState(RichTextEditor.createEmptyValue());
+  const [post, setPost] = useState(null);
   function handleChangeBody(value) {
     setBody(value);
   }
+
+  useEffect(() => {
+    blogServices.blog.getPost(id)
+      .then(resp => resp.json())
+      .then(json => {
+        setPost(json.data)
+        setBody(RichTextEditor.createValueFromString(json.data.body, 'html'))
+      });
+  }, []);
+  if (!post) {
+    return <div>Loading...</div>
+  }
   return (
     <div>
-      <h1>Create a post</h1>
+      <h1>Edit a post</h1>
       <Formik
         onSubmit={(values, { setSubmitting }) => {
           const payload = {
@@ -45,17 +36,17 @@ const CreatePost = (props) => {
             body: body.toString('html')
           };
 
-          blogServices.blog.createPost({ post: { ...payload } })
+          blogServices.blog.editPost(id, { post: { ...payload } })
             .then(resp => {
-              if (resp.status === 201) {
-                props.history.goBack();
+              if (resp.status === 200) {
+                props.history.push("/");
               }
             });
         }}
         initialValues={{
-          title: "",
-          shortText: "",
-          tags: ""
+          title: post && post.title,
+          shortText: post && post.short_text,
+          tags: post && post.tags
         }}
       >
         {({
@@ -111,7 +102,6 @@ const CreatePost = (props) => {
                 />
               </InputContainer>
               {errors.body && touched.body && errors.body}
-              {JSON.stringify(errors)}
               <ActionsContainer>
                 <button className="nes-btn is-primary" type="submit" disabled={isSubmitting}>
                   Submit
@@ -124,4 +114,4 @@ const CreatePost = (props) => {
   )
 }
 
-export default CreatePost;
+export default EditPost;

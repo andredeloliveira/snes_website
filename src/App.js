@@ -7,6 +7,7 @@ import Blog from './pages/blog';
 import About from './pages/about';
 import PostDetails from './pages/blog/PostDetails';
 import CreatePost from './pages/blog/CreatePost';
+import EditPost from './pages/blog/EditPost';
 
 const AppContainer = styled.div`
   font-family: 'Press Start 2P', cursive;
@@ -15,12 +16,13 @@ const AppContainer = styled.div`
 
 const App = () => (
   <Router>
-    <AppContainer> 
+    <AppContainer>
       <Navbar />
       <MainContainer>
         <Route exact path="/" component={Blog} />
         <Route path="/about" component={About} />
         <Route path="/blog/:id" component={PostDetails} />
+        <Route path="/blog_edit/:id" component={EditPost} />
         <Route path="/publish" component={CreatePost} />
       </MainContainer>
     </AppContainer>

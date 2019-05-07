@@ -21,6 +21,11 @@ export const PostSection = styled.section`
   margin-bottom: 60px;
 `
 
+export const PostActions = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const ReadMore = styled.a`
   position: sticky;
   float: right;
