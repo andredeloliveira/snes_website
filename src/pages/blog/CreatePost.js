@@ -4,9 +4,6 @@ import { Formik } from 'formik';
 import RichTextEditor from 'react-rte';
 import blogServices from './services';
 
-// const onSubmit = (values) => console.log(values);
-//needs validation as well....
-
 export const InputContainer = styled.div`
   padding: 10px;
   width: 100%;
@@ -66,7 +63,6 @@ const CreatePost = (props) => {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          /* and other goodies */
         }) => (
             <form onSubmit={handleSubmit}>
               <InputContainer>
@@ -111,7 +107,6 @@ const CreatePost = (props) => {
                 />
               </InputContainer>
               {errors.body && touched.body && errors.body}
-              {JSON.stringify(errors)}
               <ActionsContainer>
                 <button className="nes-btn is-primary" type="submit" disabled={isSubmitting}>
                   Submit

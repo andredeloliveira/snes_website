@@ -11,9 +11,13 @@ const Posts = () => {
       ).then(json => setPosts(json.data));
   }, []);
 
-  return posts && posts.map(post =>
-    <Post key={post.slug} id={post.id} title={post.title} shortText={post.short_text} />
-  );
+  if (posts && posts.length) {
+    return posts.map(post =>
+      <Post key={post.slug} id={post.id} title={post.title} shortText={post.short_text} />
+    );
+  } else {
+    return "Oh man, there are still no posts, oh jeez"
+  }
 }
 
 

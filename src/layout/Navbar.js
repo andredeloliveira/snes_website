@@ -38,18 +38,21 @@ const NavLink = styled.a`
 `;
 
 
-const Navbar = () => (
-  <NavbarContainer>
-    <Logo>
-      <Kirby className="nes-charmander is-small"></Kirby>
-        <span>Not just programming</span>
-    </Logo>
-    <NavItems>
-      <NavItem><NavLink href="/">blog</NavLink></NavItem>
-      <NavItem><NavLink href="/about">about</NavLink></NavItem>
-      <NavItem><NavLink href="/publish">create post</NavLink></NavItem>
-    </NavItems>
-  </NavbarContainer>
-);
+const Navbar = () => {
+  const isAuthenticated = sessionStorage.getItem("token");
+  return (
+    <NavbarContainer>
+      <Logo>
+        <Kirby className="nes-charmander is-small"></Kirby>
+          <span>Not just programming</span>
+      </Logo>
+      <NavItems>
+        <NavItem><NavLink href="/">blog</NavLink></NavItem>
+        <NavItem><NavLink href="/about">about</NavLink></NavItem>
+        { isAuthenticated ? <NavItem><NavLink href="/publish">create post</NavLink></NavItem> : ''}
+      </NavItems>
+    </NavbarContainer>
+  );
+}
 
 export default Navbar;

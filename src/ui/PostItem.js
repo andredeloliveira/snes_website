@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const PostContent = styled.div`
-  width: 80%;
-  padding: 20px;
-  margin-bottom: 24px;
+  width: 100%;
+  margin: 24px;
+  
+  
   & pre {
     background-color: black;
     color: white;
-    padding: 20px;
     text-align: left;
   }
   & code {
@@ -19,6 +19,7 @@ export const PostContent = styled.div`
 export const PostSection = styled.section`
   margin-top: 60px;
   margin-bottom: 60px;
+  
 `
 
 export const PostActions = styled.div`

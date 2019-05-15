@@ -4,11 +4,13 @@ const authOptions = {
 };
 
 export const fetchJson = (url, options = {}, meta = {}) => {
+  const token = sessionStorage.getItem("token");
   return fetch(url, {
     ...authOptions,
     ...options,
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
     }
   })
 }
@@ -34,6 +36,11 @@ export default {
     },
     editPost(id, payload) {
       return fetchJson(`${baseURL}/posts/${id}`, { method: 'PUT', body: JSON.stringify(payload) })
+    }
+  },
+  auth: {
+    login(payload) {
+      return fetchJson(`${baseURL}/auth/identity/callback`, { method: 'POST', body: JSON.stringify(payload) })
     }
   }
 }
