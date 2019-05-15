@@ -27,7 +27,7 @@ const SocialItem = styled.a`
 const SocialContentText = styled.span`
   margin-left: 10px;
   color: ${secondary};
-`; 
+`;
 
 const Social = () => (
   <React.Fragment>
@@ -40,23 +40,23 @@ const Social = () => (
         <i className="nes-icon linkedin is-large"></i> <SocialContentText>LinkedIn</SocialContentText>
       </SocialItem>
     </SocialContainer>
-   </React.Fragment>
+  </React.Fragment>
 );
 
 const About = () => (
   <AboutContainer>
-      <p>
-        Hi! I'm Andre de Oliveira, a Software Engineer from Brazil who loves functional programming.
+    <p>
+      Hi! I'm Andre de Oliveira, a Software Engineer who loves functional programming.
       </p>
-      <p>
-        I'm pretty much a functional guy, so, as expected I also love functional physical training (a.k.a. Crossfit or any other strength program).
-        There are  some other topics that keep me interested like: Music, Health, and Biohacking.
+    <p>
+      I'm pretty much a functional guy, so, functional stuff.
+      There are  some other topics that keep me interested like: Music, Health, Fitness and Biohacking.
       </p>
-      <p>
-        In this blog, you'll find many interesting stuff, but the main topic probably will be programming. 
-        Any request, suggestion or cuddles, send me an e-mail to: oliveira.andrede@gmail.com
+    <p>
+      In this blog, you'll find many interesting stuff, but the main topic probably will be programming.
+      Any request, suggestion or cuddles, send me an e-mail to: oliveira.andrede@gmail.com
       </p>
-      <Social/>
+    <Social />
   </AboutContainer>
 )
 
