@@ -1,5 +1,0 @@
-[context.production]
-  publish = "project/output/"
-  command = "make publish"
-  environment = { REACT_APP_BACKEND_URL="http://api.ordinaryfunction.net:4000" }
-
