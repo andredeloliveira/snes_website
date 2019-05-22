@@ -17,9 +17,7 @@ export const PostContent = styled.div`
 `;
 
 export const PostSection = styled.section`
-  margin-top: 60px;
-  margin-bottom: 60px;
-  
+  margin: 60px;
 `
 
 export const PostActions = styled.div`

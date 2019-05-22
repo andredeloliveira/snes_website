@@ -12,6 +12,8 @@ import Login from './pages/auth/Login';
 
 const AppContainer = styled.div`
   font-family: 'Press Start 2P', cursive;
+  width: 100vw;
+  height: 100vh;
 `;
 
 
