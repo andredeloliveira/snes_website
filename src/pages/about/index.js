@@ -4,6 +4,7 @@ import { secondary } from '../../layout/colors'
 
 const AboutContainer = styled.div`
   text-align: center;
+  margin: 20px;
 `;
 
 const SocialContainer = styled.div`
