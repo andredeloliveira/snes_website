@@ -5,12 +5,15 @@ import { secondary } from '../../layout/colors'
 const AboutContainer = styled.div`
   text-align: center;
   margin: 20px;
+  width: 80%;
+  font-size: 12px;
 `;
 
 const SocialContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
 `;
 
 const SocialItem = styled.a`

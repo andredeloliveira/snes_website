@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 export const PostContent = styled.div`
   width: 100%;
-  margin: 24px;
-  
-  
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 12px;
   & pre {
     background-color: black;
     color: white;
@@ -14,10 +14,14 @@ export const PostContent = styled.div`
   & code {
     font-family: 'Source Code Pro', monospace ;
   }
+   & img {
+     width: 85%;
+     height: auto;
+   }
 `;
 
 export const PostSection = styled.section`
-  margin: 60px;
+  margin-top: 50px;
 `
 
 export const PostActions = styled.div`
