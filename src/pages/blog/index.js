@@ -15,8 +15,10 @@ const Posts = () => {
     return posts.map(post =>
       <Post key={post.slug} id={post.id} title={post.title} shortText={post.short_text} />
     );
-  } else {
+  } if (posts && posts.length === 0) {
     return "Oh man, there are still no posts, oh jeez"
+  } else {
+    return "LOADING..."
   }
 }
 
