@@ -11,7 +11,7 @@ const Posts = () => {
       ).then(json => setPosts(json.data));
   }, []);
 
-  if (posts && posts.length) {
+  if (posts && posts.length > 0) {
     return posts.map(post =>
       <Post key={post.slug} id={post.id} title={post.title} shortText={post.short_text} />
     );
